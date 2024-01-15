@@ -17,7 +17,11 @@
 	
 		header('Location: nova_tarefa.php?inclusao=1');
 	}else if($acao == 'recuperar'){
-		echo 'Chegamos ate aqui!';
+		$tarefa = new Tarefa();
+		$conexao = new Conexao();
+
+		$tarefaService = new TarefaService($conexao, $tarefa);
+		$tarefas = $tarefaService->recuperar();
 	}
 
 	
