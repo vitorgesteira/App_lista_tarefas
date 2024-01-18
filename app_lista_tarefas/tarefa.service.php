@@ -35,10 +35,10 @@
 
         public function atualizar(){ //update
             // print_r($this->tarefa);
-            $query = 'update tb_tarefas set tarefa = :tarefa where id= :id';
+            $query = 'update tb_tarefas set tarefa = ? where id= ?';
             $stm = $this->conexao->prepare($query);
-            $stm->bindValue(':tarefa', $this->tarefa->__get('tarefa'));
-            $stm->bindValue(':id', $this->tarefa->__get('id'));
+            $stm->bindValue(1, $this->tarefa->__get('tarefa'));
+            $stm->bindValue(2, $this->tarefa->__get('id'));
             return $stm->execute();
         }
 
