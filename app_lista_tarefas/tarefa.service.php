@@ -43,7 +43,10 @@
         }
 
         public function remover(){ //delete
-
+            $query = 'delete from tb_tarefas where id = :id';
+            $stm = $this->conexao->prepare($query);
+            $stm->bindValue(':id', $this->tarefa->__get('id'));
+            $stm->execute();
         }
     }
 ?>
