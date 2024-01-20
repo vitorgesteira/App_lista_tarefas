@@ -35,7 +35,7 @@
 
         public function atualizar(){ //update
             // print_r($this->tarefa);
-            $query = 'update tb_tarefas set tarefa = ? where id= ?';
+            $query = 'update tb_tarefas set tarefa = ? where id = ?';
             $stm = $this->conexao->prepare($query);
             $stm->bindValue(1, $this->tarefa->__get('tarefa'));
             $stm->bindValue(2, $this->tarefa->__get('id'));
@@ -47,6 +47,14 @@
             $stm = $this->conexao->prepare($query);
             $stm->bindValue(':id', $this->tarefa->__get('id'));
             $stm->execute();
+        }
+
+        public function marcarRealizada(){ //update realizada
+            $query = 'update tb_tarefas set id_status = ? where id = ?';
+            $stm = $this->conexao->prepare($query);
+            $stm->bindValue(1, $this->tarefa->__get('id_status'));
+            $stm->bindValue(2, $this->tarefa->__get('id'));
+            return $stm->execute();
         }
     }
 ?>
