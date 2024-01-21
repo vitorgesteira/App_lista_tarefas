@@ -19,7 +19,6 @@
 		<script>
 			function editar(id, txt_tarefa){
 				//teste
-				// console.log(form)
 				// alert(id)
 				// alert('estamos aqui')
 				// alert(txt_tarefa)
@@ -57,6 +56,9 @@
 
 				//incluir button no form
 				form.appendChild(button)
+
+				//teste
+				// console.log(form)
 
 				//selecionar a div tarefa
 				let tarefa = document.getElementById('tarefa_'+id)
